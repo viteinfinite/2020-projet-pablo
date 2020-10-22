@@ -7,11 +7,12 @@ services:
         volumes:
             - "./rhasspy/profiles:/profiles"
             - "/etc/localtime:/etc/localtime:ro"
+            - "~/.config/pulse:/root/.config/pulse"
         ports:
             - "12101:12101"
-        devices:
-            - "/dev/snd:/dev/snd"
         command: --user-profiles /profiles --profile fr
+        environment:
+            - PULSE_SERVER=docker.for.mac.localhost
 
     node-red:
         build:
@@ -23,4 +24,6 @@ services:
             - "1880:1880"
         volumes:
             - "./node-red/data:/data:rw"
-
+            - "~/.config/pulse:/usr/src/node-red/.config/pulse"
+        environment:
+            - PULSE_SERVER=docker.for.mac.localhost
