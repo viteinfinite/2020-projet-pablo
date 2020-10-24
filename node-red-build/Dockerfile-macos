@@ -1,10 +1,10 @@
 FROM nodered/node-red
 COPY package.json .
 USER root
+RUN apk add alsa-utils alsa-utils-doc alsa-lib alsaconf
 RUN apk add pulseaudio pulseaudio-alsa
 RUN addgroup node-red audio
 RUN addgroup node-red pulse
 RUN addgroup node-red pulse-access
-RUN apk add mpg123
 USER node-red
 RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production
