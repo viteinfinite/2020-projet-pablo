@@ -14,7 +14,6 @@ services:
         command: --user-profiles /profiles --profile fr
 
     node-red:
-        user: root
         build:
             context: ./node-red-build
         container_name: nodered
@@ -24,5 +23,8 @@ services:
             - "1880:1880"
         volumes:
             - "./node-red/data:/data:rw"
+            - "./node-red/tools:/tools:ro"
         devices:
             - "/dev/snd:/dev/snd"
+            - "/dev/ttyAMA0:/dev/ttyAMA0"
+        privileged: true
