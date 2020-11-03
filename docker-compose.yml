@@ -25,6 +25,5 @@ services:
             - "./node-red/data:/data:rw"
             - "./node-red/tools:/tools:ro"
         devices:
-            - "/dev/snd:/dev/snd"
             - "/dev/ttyAMA0:/dev/ttyAMA0"
         privileged: true

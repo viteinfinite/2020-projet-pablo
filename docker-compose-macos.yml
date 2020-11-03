@@ -24,6 +24,5 @@ services:
             - "1880:1880"
         volumes:
             - "./node-red/data:/data:rw"
-            - "~/.config/pulse:/usr/src/node-red/.config/pulse"
-        environment:
-            - PULSE_SERVER=docker.for.mac.localhost
+            - "./node-red/tools:/tools:ro"
+        privileged: true
