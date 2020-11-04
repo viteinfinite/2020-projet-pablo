@@ -73,20 +73,28 @@ pixels = Pixels()
 
 
 if __name__ == '__main__':
-    while True:
-
-        try:
-            pixels.wakeup()
-            time.sleep(3)
-            pixels.think()
-            time.sleep(3)
-            pixels.speak()
-            time.sleep(6)
-            pixels.off()
-            time.sleep(3)
-        except KeyboardInterrupt:
-            break
-
+    try:
+        pixels.wakeup()
+        time.sleep(1.5)
+    except KeyboardInterrupt:
+        pixels.off()
 
     pixels.off()
-    time.sleep(1)
+    time.sleep(0.5)
+    # while True:
+
+        # try:
+            # pixels.wakeup()
+            # time.sleep(3)
+            # pixels.think()
+            # time.sleep(3)
+            # pixels.speak()
+            # time.sleep(6)
+            # pixels.off()
+            # time.sleep(3)
+        # except KeyboardInterrupt:
+            # break
+
+
+    # pixels.off()
+    # time.sleep(1)

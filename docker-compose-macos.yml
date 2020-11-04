@@ -15,6 +15,7 @@ services:
             - PULSE_SERVER=docker.for.mac.localhost
 
     node-red:
+        user: root
         build:
             context: ./node-red-build
         container_name: nodered
